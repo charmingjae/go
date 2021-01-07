@@ -1,26 +1,25 @@
 // 패키지 지정
 package main
 
+import "fmt"
+
 // 메인 함수
 func main() {
-	println("Hello World!")
+	chk(2)
+}
 
-	var i, j, k int = 1, 2, 3
-	println(i, j, k)
-
-	const (
-		Visa   = "Visa"
-		Master = "MasterCard"
-		Amex   = "American Express"
-	)
-
-	println(Visa, Master, Amex)
-
-	const (
-		a = iota
-		b
-		c
-	)
-
-	println(a, b, c)
+func chk(val int) {
+	switch val {
+	case 1:
+		fmt.Println("1 이하")
+		fallthrough
+	case 2:
+		fmt.Println("2 이하")
+		fallthrough
+	case 3:
+		fmt.Println("3 이하")
+		fallthrough
+	default:
+		fmt.Println("default")
+	}
 }
