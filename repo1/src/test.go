@@ -1,21 +1,14 @@
 package main
 
-func nextValue() func() int {
-	i := 0
-	return func() int {
-		i++
-		return i
-	}
-}
+import "fmt"
 
 func main() {
-	next := nextValue()
+	rawLiteral := `아리랑 \n 아리랑 \n 아라리요`
 
-	println(next())
-	println(next())
-	println(next())
+	interLiteral := "아리랑 \n 아리랑 \n 아라리요"
 
-	anotherNext := nextValue()
-	println(anotherNext())
-	println(anotherNext())
+	fmt.Println(rawLiteral)
+	fmt.Println()
+	fmt.Println(interLiteral)
+
 }
