@@ -1,14 +1,18 @@
 package main
 
-import "fmt"
-
 func main() {
-	rawLiteral := `아리랑 \n 아리랑 \n 아라리요`
+	add := func(x int, y int) int {
+		return x + y
+	}
 
-	interLiteral := "아리랑 \n 아리랑 \n 아라리요"
+	r1 := calc(add, 10, 20)
+	println(r1)
 
-	fmt.Println(rawLiteral)
-	fmt.Println()
-	fmt.Println(interLiteral)
+	r2 := calc(func(x int, y int) int { return x - y }, 10, 20)
+	println(r2)
+}
 
+func calc(f func(int, int) int, x int, y int) int {
+	result := f(x, y)
+	return result
 }
