@@ -1,18 +1,22 @@
 package main
 
-func main() {
-	add := func(x int, y int) int {
-		return x + y
+func nextValue() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
 	}
-
-	r1 := calc(add, 10, 20)
-	println(r1)
-
-	r2 := calc(func(x int, y int) int { return x - y }, 10, 20)
-	println(r2)
 }
 
-func calc(f func(int, int) int, x int, y int) int {
-	result := f(x, y)
-	return result
+func main() {
+	next := nextValue()
+
+	println(next())
+	println(next())
+	println(next())
+
+	anotherNext := nextValue()
+
+	println(anotherNext())
+	println(anotherNext())
 }
