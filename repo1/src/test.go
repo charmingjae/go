@@ -1,22 +1,16 @@
 package main
 
-func nextValue() func() int {
-	i := 0
-	return func() int {
-		i++
-		return i
-	}
-}
+import "fmt"
 
 func main() {
-	next := nextValue()
 
-	println(next())
-	println(next())
-	println(next())
+	sliceA := make([]int, 0, 3)
 
-	anotherNext := nextValue()
+	for i := 1; i <= 15; i++ {
+		sliceA = append(sliceA, i)
+		fmt.Println(len(sliceA), cap(sliceA))
+	}
 
-	println(anotherNext())
-	println(anotherNext())
+	fmt.Println(sliceA)
+
 }
