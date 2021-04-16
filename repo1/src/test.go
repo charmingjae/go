@@ -1,16 +1,17 @@
 package main
 
-import "fmt"
-
 func main() {
+	ch := make(chan int, 2)
 
-	sliceA := make([]int, 0, 3)
+	ch <- 1
+	ch <- 2
 
-	for i := 1; i <= 15; i++ {
-		sliceA = append(sliceA, i)
-		fmt.Println(len(sliceA), cap(sliceA))
+	close(ch)
+
+	println(<-ch)
+	println(<-ch)
+
+	if a, success := <-ch; !success {
+		println(a, success)
 	}
-
-	fmt.Println(sliceA)
-
 }
