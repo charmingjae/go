@@ -1,26 +1,12 @@
 package main
 
-import (
-	"encoding/json"
-	"fmt"
-)
-
-type Member struct {
-	Name   string
-	Age    int
-	Active bool
-}
+import "fmt"
 
 func main() {
 
-	mem := Member{"Alex", 10, true}
+	var num int = 2
 
-	jsonBytes, err := json.Marshal(mem)
-	if err != nil {
-		panic(err)
+	for i := 1; i <= 9; i++ {
+		fmt.Printf("%d X %d = %d\n", num, i, num*i)
 	}
-
-	jsonString := string(jsonBytes)
-
-	fmt.Println(jsonString)
 }
