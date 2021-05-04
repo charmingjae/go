@@ -1,14 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
+	var inputX int
+	var inputY int
 
-	var num int
+	fmt.Scan(&inputX, &inputY)
 
-	fmt.Scanln(&num)
+	multiple(inputX, inputY)
 
-	for i := 1; i <= 9; i++ {
-		fmt.Printf("%d X %d = %d\n", num, i, num*i)
+}
+
+func multiple(a int, b int) {
+	for i := 1; i <= b; i++ {
+		fmt.Printf("%d X %d = %d\n", a, i, a*i)
 	}
 }
